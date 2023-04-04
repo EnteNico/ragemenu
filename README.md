@@ -32,6 +32,9 @@ client_scripts {
 
 **Pictures of the Menu**
 
+![image](https://user-images.githubusercontent.com/84995446/229917315-6dc9aa8f-dc1e-4e6c-9bcf-1fa0c642310c.png)
+![image (1)](https://user-images.githubusercontent.com/84995446/229917332-6d772639-6dbb-4b46-9997-e0c1ca9aec92.png)
+
 |                                         |                                |
 |-------------------------------------|----------------------------|
 | Code is accessible       | Yes     |
