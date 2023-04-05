@@ -1,2 +1,0 @@
-# RageMenu
- FiveM Action Menu
