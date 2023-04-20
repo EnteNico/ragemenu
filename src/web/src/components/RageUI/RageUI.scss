@@ -1,0 +1,291 @@
+@font-face {
+  font-family: 'SignPainter';
+  font-style: normal;
+  font-weight: normal;
+  src: url('fonts/SignPainterHouseScript.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'RageUI';
+  font-style: normal;
+  font-weight: normal;
+  src: url('fonts/RageUIText.otf') format('opentype');
+}
+
+:root {
+  --titleColor: white;
+  --sliderColor: #042039;
+  --sliderProgressColor: #3974c8;
+}
+
+.rageui {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  font-family: 'RageUI', sans-serif;
+  color: white;
+  z-index: 99999;
+
+  margin: 2vh;
+  width: 43vh;
+
+  user-select: none;
+
+  .rageui-header {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10vh;
+
+    background: url('assets/ActionMenu/header.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'SignPainter';
+    font-weight: normal;
+    font-size: 5.7vh;
+
+    .rageui-header-title {
+      max-width: 90%;
+      text-align: center;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  .rageui-subheader {
+    position: relative;
+    top: 0vh;
+    left: 0;
+    width: 100%;
+    height: 3.5vh;
+    background: black;
+    display: flex;
+    align-items: center;
+    font-family: sans-serif;
+    font-size: 1.8vh;
+
+    .rageui-subheader-title {
+      position: absolute;
+      left: 1vh;
+      color: var(--titleColor, #2c73c5);
+    }
+
+    .rageui-subheader-count {
+      position: absolute;
+      right: 1vh;
+      color: var(--titleColor, #2c73c5);
+      letter-spacing: -0.2vh;
+    }
+  }
+
+  .rageui-items {
+    --maxItems: 10;
+    position: relative;
+    top: 0vh;
+    left: 0;
+    width: 100%;
+    background-image: url('assets/ActionMenu/icons/commonmenu/gradient_bgd.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    max-height: calc(var(--maxItems) * 4vh + 3.5vh);
+    overflow-y: auto;
+    outline: none;
+    border: none;
+    scroll-behavior: smooth;
+
+    &::-webkit-scrollbar {
+      width: 0;
+    }
+
+    .rageui-item {
+      --animDelay: 0.1s;
+      --index: 0;
+      position: relative;
+      width: 100%;
+      height: 4vh;
+      font-size: 1.8vh;
+      text-indent: 1vh;
+      display: flex;
+      align-items: center;
+      font-weight: 500;
+      animation: slideIn 0.5s ease-in-out forwards;
+      animation-delay: calc(var(--animDelay) * var(--index));
+      transform: translate(-100%);
+
+      .rageui-item-rightlabel {
+        position: absolute;
+        right: 1vh;
+        font-size: 1.8vh;
+      }
+
+      .rageui-item-badge {
+        position: absolute;
+        right: 1vh;
+        width: 4vh;
+        height: 4vh;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      &.active {
+        background-image: url('assets/ActionMenu/icons/commonmenu/gradient_nav.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        color: black;
+
+        .icon-left,
+        .icon-right {
+          img {
+            filter: invert(1);
+          }
+        }
+
+        .rageui-item-badge {
+          img {
+            filter: invert(1);
+          }
+        }
+      }
+
+      &.rageui-item-placeholder {
+        justify-content: center;
+      }
+
+      &.rageui-item-slider {
+        .rageui-item-slider-container {
+          position: absolute;
+          right: 2vh;
+          width: 15vh;
+          height: 0.8vh;
+          background: var(--sliderColor);
+          display: flex;
+          align-items: center;
+
+          .icon-left {
+            position: absolute;
+            left: -3.2vh;
+          }
+
+          .rageui-item-slider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 50%;
+            background: var(--sliderProgressColor);
+          }
+        }
+      }
+
+      &.rageui-item-select {
+        .rageui-item-select-container {
+          position: absolute;
+          right: 2vh;
+          display: flex;
+          align-items: center;
+        }
+      }
+
+      &.active {
+        .rageui-item-slider-container {
+          background: rgba(0, 0, 0, 0.8);
+        }
+      }
+
+      &.active {
+        .icon-left,
+        .icon-right {
+          display: block;
+        }
+      }
+    }
+
+    .icon-left {
+      position: absolute;
+      left: -2vh;
+    }
+
+    .icon-right {
+      position: absolute;
+      right: -1vh;
+    }
+
+    .icon-left,
+    .icon-right {
+      top: 40%;
+      transform: translateY(-50%);
+      width: 2.5vh;
+      height: 2.5vh;
+      display: none;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  .rageui-scroll {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    height: 4vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .rageui-scroll-img {
+      position: relative;
+      width: 4vh;
+      height: 4vh;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  .rageui-item-description {
+    position: relative;
+    top: 0.2vh;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    height: 4vh;
+    text-indent: 1vh;
+    font-size: 1.8vh;
+    display: flex;
+    align-items: center;
+
+    span {
+      position: relative;
+      width: 90%;
+    }
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
