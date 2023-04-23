@@ -4,11 +4,12 @@ RageUI.__index = RageUI
 RageUI.CurrentMenu = nil
 RageUI.OpenedMenus = {}
 
-function RageUI:Create(name, title, subtitle)
+function RageUI:Create(name, title, subtitle, options)
     local Menu = {
         Name = name,
         Title = title,
         Subtitle = subtitle,
+        Options = options or {},
         Items = {},
         _Visible = false,
         _Events = {}
@@ -33,14 +34,48 @@ function RageUI:Create(name, title, subtitle)
     return setmetatable(Menu, RageUI)
 end
 
-function RageUI:Button(label, description, rightLabel, backgroundColor)
+function RageUI:Button(label, description, rightLabel, options, backgroundColor)
     local Item = {
         type = 'button',
         label = label,
         description = description,
         rightLabel = rightLabel,
         background = backgroundColor,
+        options = options,
         uuid = uuid(),
+        _Events = {}
+    }
+
+    function Item:On(event, callback)
+        if not self._Events[event] then
+            self._Events[event] = {}
+        end
+
+        table.insert(self._Events[event], callback)
+    end
+
+    function Item:Trigger(event, ...)
+        if self._Events[event] then
+            for key, value in pairs(self._Events[event]) do
+                value(...)
+            end
+        end
+    end
+
+    table.insert(self.Items, Item)
+    return setmetatable(Item, RageUI)
+end
+
+function RageUI:Checkbox(label, description, checked, options)
+    local Item = {
+        type = 'checkbox',
+        label = label,
+        description = description,
+        uuid = uuid(),
+        options = {
+            checked = checked or false,
+            style = options and options.style or 'tick'
+        },
         _Events = {}
     }
 
@@ -205,6 +240,8 @@ function RageUI:Back()
 
     if menu.Name == currentMenu.Name then
         RageUI.OpenedMenus = {}
+        SetNuiFocus(false, false)
+        SetNuiFocusKeepInput(false)
         return RageUI:Close()
     end
 
@@ -238,11 +275,15 @@ function RageUI:SerializeItems(items)
     return serialized
 end
 
-uuid = function()
-	local fn = function(x)
-		local r = math.random(16) - 1
-		r = (x == "x") and (r + 1) or (r % 4) + 9
-		return ("0123456789abcdef"):sub(r, r)
-	end
-	return (("xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx"):gsub("[xy]", fn))
+function uuid()
+    local fn = function(x)
+        local r = math.random(16) - 1
+        r = (x == 'x') and (r + 1) or (r % 4) + 9
+        return ('0123456789abcdef'):sub(r, r)
+    end
+    return (('xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'):gsub('[xy]', fn))
 end
+
+exports('GetRageUI', function()
+    return RageUI
+end)

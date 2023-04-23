@@ -11,8 +11,8 @@ client_scripts {
   'example.lua'
 }
 
-ui_page 'web/dist/index.html'
+ui_page 'src/web/dist/index.html'
 
 files {
-  'web/dist/**/*',
+  'src/web/dist/**/*',
 }

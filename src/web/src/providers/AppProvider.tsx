@@ -26,7 +26,7 @@ debugData(
           name: 'main',
           title: 'RageUI Clone',
           subtitle: 'Categorie',
-          maxItems: 12,
+          maxItems: 7,
           items: [
             {
               type: 'placeholder',
@@ -38,56 +38,52 @@ debugData(
             },
             {
               type: 'button',
+              label: 'Button Disabled',
+              description: 'Description',
+              rightLabel: 'Right Label',
+              options: {
+                disabled: true,
+              },
+            },
+            {
+              type: 'button',
               label: 'Button',
               description: 'Description',
-              rightlabel: 'Right Label',
+              rightLabel: 'Right Label',
             },
             {
               type: 'button',
-              label: 'Button2',
-              badge: 'shop_garage_icon_a',
+              label: 'Button with a ~y~very ~s~long Text',
+              description: 'Description',
+              rightLabel: 'Right Label with a ~y~very ~s~long Text',
             },
             {
-              type: 'button',
-              label: 'Button3',
-              description: 'Another Description',
-              badge: 'shop_clothing_icon_a',
+              type: 'checkbox',
+              label: 'Checkbox',
+              description: 'Description',
+              options: {
+                checked: true,
+                style: 'cross', // tick, cross
+              },
             },
             {
-              type: 'button',
-              label: 'Button4',
-              description: 'Another Description',
-              badge: 'shop_barber_icon_a',
+              type: 'colorpanel',
+              label: 'Color Panel',
+              description: 'Color Panel',
+              rightLabel: 'Right Label',
+              options: {
+                current: 1,
+              },
             },
             {
-              type: 'button',
-              label: 'Button5',
-              description: 'Another Description',
-              badge: 'shop_garage_bike_icon_a',
-            },
-            {
-              type: 'button',
-              label: 'Button6',
-              description: 'Another Description',
-              badge: 'shop_garage_bike_icon_a',
-            },
-            {
-              type: 'button',
-              label: 'Button7',
-              description: 'Another Description',
-              badge: 'shop_makeup_icon_a',
-            },
-            {
-              type: 'button',
-              label: 'Button8',
-              description: 'Another Description',
-              badge: 'shop_mask_icon_a',
-            },
-            {
-              type: 'button',
-              label: 'Button9',
-              description: 'Another Description',
-              badge: 'shop_tattoos_icon_a',
+              type: 'grid',
+              label: 'Grid',
+              description: 'Grid Here',
+              rightLabel: 'Right Label',
+              options: {
+                x: 50,
+                y: 50,
+              },
             },
             {
               type: 'placeholder',
@@ -104,6 +100,7 @@ debugData(
                 min: 0,
                 max: 100,
                 current: 10,
+                indicator: true,
               },
             },
             {
@@ -113,6 +110,7 @@ debugData(
                 min: 0,
                 max: 100,
                 current: 43,
+                step: 4,
               },
             },
             {
