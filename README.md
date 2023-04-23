@@ -18,13 +18,7 @@ RageMenu is an Action Menu that is fully written in React. This Script is Standa
 **How to use it**
 
 1. Add `ensure RageMenu` in your server.cfg before the scripts that will use this menu
-2. To use it in any script you have to add this line of code in your client_scripts in the fxmanifest
-```
-client_scripts {
-   '@RageMenu/src/rageui.lua',
-   'example.lua'
-}
-```
+2. To use it in any script just add the everything to your script 
 
 
 **Download**
