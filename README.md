@@ -6,6 +6,7 @@ RageMenu is an Action Menu that is fully written in React. This Script is Standa
 **Features**
 
 * Buttons
+* Checkbox
 * Placeholders
 * Sliders
 * Selects
