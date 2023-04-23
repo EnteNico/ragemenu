@@ -20,6 +20,9 @@ RageMenu is an Action Menu that is fully written in React. This Script is Standa
 
 1. Add `ensure RageMenu` in your server.cfg before the scripts that will use this menu
 2. To use it in any script just add the everything to your script 
+3. Open the src/web directory in a cmd.
+4. Type in "npm i" and "npm run build"
+5. Ready
 
 
 **Download**
