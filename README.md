@@ -24,6 +24,9 @@ RageMenu is an Action Menu that is fully written in React and Lua. This Script i
 **Download**
 [Latest Release](https://github.com/EnteNico/RageMenu)
 
+**Documentation**
+[Click me](https://docs.entenico.xyz/)
+
 **Pictures of the Menu**
 
 ![image](https://cdn.discordapp.com/attachments/1143928820953514075/1152941615523057684/image.png)
