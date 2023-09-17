@@ -1,0 +1,243 @@
+.menu-container {
+  position: fixed;
+
+  &.top-right {
+    top: 0;
+    right: 0;
+    margin: 3vh;
+  }
+
+  &.top-left {
+    top: 0;
+    left: 0;
+    margin: 3vh;
+  }
+
+  &.bottom-right {
+    bottom: 0;
+    right: 0;
+    margin: 3vh;
+  }
+
+  &.bottom-left {
+    bottom: 0;
+    left: 0;
+    margin: 3vh;
+  }
+
+  &.center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &.center-left {
+    top: 50%;
+    left: 0;
+    transform: translate(0, -50%);
+    margin-left: 3vh;
+  }
+
+  &.center-right {
+    top: 50%;
+    right: 0;
+    transform: translate(0, -50%);
+    margin-right: 3vh;
+  }
+
+  .menu {
+    position: relative;
+
+    &.theme-test {
+      width: 37vh;
+    }
+
+    .menu-header {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+
+      .menu-header-text {
+        position: relative;
+        font-family: 'SignPainter', sans-serif;
+        z-index: 2;
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0.9vh;
+        right: -5vh;
+        height: 100%;
+        width: 40%;
+        background: url('assets/globe.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        transform: rotate(10deg);
+        filter: invert(1);
+        opacity: 0.08;
+        z-index: 1;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 10vh;
+        height: 0.1vh;
+        background: url('assets/icons/glint.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        animation: glowAnimation 2s infinite;
+      }
+    }
+
+    .menu-subheader {
+      position: relative;
+      width: 100%;
+    }
+
+    .menu-content-item {
+      --activeBackground: url('assets/icons/commonmenu/gradient_nav.png');
+      position: relative;
+      width: 100%;
+
+      &.disabled {
+        opacity: 0.5;
+      }
+
+      &.selected {
+        background: var(--activeBackground);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+
+      &.selected img {
+        filter: invert(1);
+      }
+    }
+
+    .menu-slider {
+      position: relative;
+      width: 15vh;
+      height: 0.8vh;
+      background: var(--sliderColor);
+      display: flex;
+      align-items: center;
+
+      .item-slider {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 0%;
+        background: var(--sliderProgressColor);
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    .menu-scrolling {
+      position: relative;
+      width: 100%;
+
+      .menu-scrolling-img {
+        position: relative;
+        width: var(--scrollingIconSize);
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+
+    .menu-checkbox {
+      position: relative;
+      width: 5vh;
+      height: 5vh;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .arrow-left,
+    .arrow-right {
+      position: relative;
+      width: 3vh;
+      height: 3vh;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .menu-item-description {
+      position: relative;
+      border-top: 0.2vh solid black;
+      width: 100%;
+      display: flex;
+      align-items: center;
+
+      .menu-item-description-text {
+        position: relative;
+        max-width: 85%;
+      }
+
+      .menu-item-description-img {
+        position: relative;
+        margin: -0.7vh;
+        width: var(--infoIconSize);
+        height: var(--infoIconSize);
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+
+  .sidepanel {
+    .sidepanel-text {
+      font-family: 'SignPainter', sans-serif;
+      font-size: 3vh;
+      padding-right: 1.5vh;
+    }
+
+    .sidepanel-item {
+      background: rgba(0, 0, 0, 0.9);
+
+      &:nth-child(2n) {
+        background: rgba(0, 0, 0, 0.8);
+      }
+    }
+  }
+
+  .menu-content-item-right-label.disabled {
+    width: 4vh;
+    height: 4vh;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+@keyframes glowAnimation {
+  0% {
+    left: 0;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
