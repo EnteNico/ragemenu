@@ -1,18 +1,18 @@
 fx_version 'adamant'
 
-author 'Ente Nico'
+author 'Ente Nico | Nopes'
 version '1.0.0'
 game 'gta5'
 lua54 'yes'
 
-client_scripts {
-	'src/rageui.lua',
-  'src/rageui_nui.lua',
-  'example.lua'
+files {
+  'web/dist/**/*',
+  'ragemenu.lua',
 }
 
-ui_page 'src/web/dist/index.html'
+ui_page 'web/dist/index.html'
 
-files {
-  'src/web/dist/**/*',
+client_scripts {
+  'utils/keys.lua',
+  'utils/nui.lua',
 }

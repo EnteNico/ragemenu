@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --sliderColor: #042039;
+  --sliderProgressColor: #3974c8;
+}
+
+@font-face {
+  font-family: 'SignPainter';
+  font-style: normal;
+  font-weight: normal;
+  src: url('fonts/SignPainterHouseScript.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'RageUI';
+  font-style: normal;
+  font-weight: normal;
+  src: url('fonts/RageUIText.otf') format('opentype');
+}
+
+body {
+  color: white;
+  font-family: 'RageUI', sans-serif;
+}
+
+body.dev {
+  background: url('assets/dev.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+::-webkit-scrollbar {
+  width: 0vh;
+}
+
+.text-red {
+  color: #ff0000;
+}
+.text-green {
+  color: #00ff00;
+}
+.text-blue {
+  color: #0051ff;
+}
+.text-yellow {
+  color: #ffff00;
+}
+.text-purple {
+  color: #ff00ff;
+}
+.text-orange {
+  color: #ffa500;
+}
+.text-cyan {
+  color: #00ffff;
+}
+.text-magenta {
+  color: #ff00ff;
+}
+.text-black {
+  color: #000000;
+}
+.text-white {
+  color: #ffffff;
+}
+
+.background-red {
+  background-color: rgba(255, 0, 0, 0.5);
+}
+.background-green {
+  background-color: rgba(0, 255, 0, 0.5);
+}
+.background-blue {
+  background-color: rgba(0, 81, 255, 0.5);
+}
+.background-yellow {
+  background-color: rgba(255, 255, 0, 0.5);
+}
+.background-purple {
+  background-color: rgba(255, 0, 255, 0.5);
+}
+.background-orange {
+  background-color: rgba(255, 165, 0, 0.5);
+}
+.background-cyan {
+  background-color: rgba(0, 255, 255, 0.5);
+}
+.background-magenta {
+  background-color: rgba(255, 0, 255, 0.5);
+}
+.background-black {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.background-white {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.gradient-img {
+  background: url('assets/icons/commonmenu/gradient_bgd.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
